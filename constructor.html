@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>constructor</title>
+</head>
+<body>
+    <script>
+        function Product(a,b){
+            this.name = a;
+            this.price = b;
+            this.부가세 = function(){
+                console.log(b*0.1);
+            };
+        }
+
+        var product1 = new Product('shirts', 50000);
+        var product2 = new Product('pants', 60000);
+
+    </script>
+</body>
+</html>

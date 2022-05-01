@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template literals, tagged literals</title>
+</head>
+<body>
+    
+    <script>
+        //
+        var pants = 20;
+        var socks = 100;
+
+        `바지${pants} 양말${socks}`;
+
+        function 해체분석기(문자들, 변수1, 변수2){
+            console.log(문자들[1] + 변수1 + 문자들[0] + 변수2);
+        }
+
+        해체분석기`바지${pants} 양말${socks}`
+
+
+
+        //바지가 0개일때 바지 다팔렸어요 라고 띄우고 싶을때! 
+        var pants = 0;
+
+        function 해체분석기(문자들, 변수1, 변수2){
+            if(변수1 == 0){
+                console.log(`바지다팔렸어요 양말` + 변수2);
+            }
+        }
+
+        해체분석기`바지${pants} 양말${socks}`
+
+    </script>
+
+</body>
+</html>
