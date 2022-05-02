@@ -19,6 +19,22 @@
         var product1 = new Product('shirts', 50000);
         var product2 = new Product('pants', 60000);
 
+
+        function Student(a,b){
+            this.name = a;
+            this.age = b;
+            // this.sayHi = function(){
+            //     console.log('안녕 나는' + a + '이야');
+            // };
+        }
+
+        var 학생1 = new Student('Kim', 20);
+        var 학생2 = new Student('Park', 21);
+        var 학생3 = new Student('Lee', 22);
+
+        Student.prototype.sayHi = function(){
+                console.log('안녕 나는' + this.name + '이야');
+            };
     </script>
 </body>
 </html>

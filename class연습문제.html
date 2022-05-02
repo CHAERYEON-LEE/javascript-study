@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class, extends, getter, setter 연습문제 5개</title>
+</head>
+<body>
+    <script>
+        class 강아지 {
+            constructor(종, 색){
+                this.type = 종;
+                this.color = 색;
+            }
+            한살먹기(){
+                if(this instanceof 고양이){
+                    this.age++;
+                }
+            }
+        }
+
+        var 강아지1 = new 강아지('말티즈', 'white');
+
+        class 고양이 extends 강아지 {
+            constructor(종, 색, 나이){
+                super(종, 색);
+                this.age = 나이;
+            }
+        }
+
+        var 고양이1 = new 고양이('코숏', 'white', 5);
+        var 고양이2 = new 고양이('러시안블루', 'brown', 2);
+
+
+        class Unit {
+            constructor(){
+                this.power = 5;
+                this.energy = 100;
+            }
+            get battlePoint(){
+                console.log(this.power + this.energy);
+            }
+            set heal(powerUp){
+                this.energy = this.energy + powerUp ;
+            }
+        }
+
+        var 로봇1 = new Unit();
+
+
+        var data = {
+            odd : [],
+            even : [],
+            setter함수 : function(...숫자들){
+                숫자들.forEach((a)=>{
+                    if( a % 2 == 1 ){
+                        this.odd.push(a);
+                    }else{
+                        this.even.push(a)
+                    }
+                });
+            },
+            get getter함수(){
+                return [...this.odd, ...this.even].sort()
+            }
+        };
+    </script>
+</body>
+</html>
