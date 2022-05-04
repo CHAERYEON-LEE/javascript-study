@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise 예제문제</title>
+</head>
+<body>
+    <img id="test" src="https://codingapple1.github.io/kona.jpg"> 
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script>
+
+        var 프로미스 = new Promise(function(resolved, rejected){
+            document.querySelector('#test').addEventListener('load',function(){
+                resolved();
+            })
+            document.querySelector('#test').addEventListener('error',function(){
+                rejected();
+            })
+        })
+
+        프로미스.then(function(){
+            console.log('성공');
+        }).catch(function(){
+            console.log('실패');
+        })
+
+
+
+
+        var ajaxData = new Promise(function (resolved, rejected) {
+            $.ajax({
+                url: 'https://codingapple1.github.io/hello.txt',
+                type: 'get'
+            }).done(function (e) {
+                resolved(e)
+            });
+        });
+
+        ajaxData.then(function(e){
+            console.log(e);
+        });
+
+
+        // var promiseChaining = new Promise(function(resolved, rejected){
+        //     $.get('https://codingapple1.github.io/hello.txt').done(function(결과){
+        //         resolved(결과)
+        //     });
+        // });
+
+
+        // promiseChaining.then(function (결과) {
+        //     console.log(결과)
+        //     var promiseChaining2 = new Promise(function (resolved, rejected) {
+        //         $.get('https://codingapple1.github.io/hello2.txt').done(function (결과) {
+        //             resolved(결과)
+        //         });
+        //     });
+        //     return promiseChaining2;
+        // }).then(function (결과) {
+        //     console.log(결과);
+        // })  
+
+
+        var promiseChaining = 프로미스함수('https://codingapple1.github.io/hello.txt');
+
+
+        promiseChaining.then(function (결과) {
+            console.log(결과)
+            var promiseChaining2 = 프로미스함수('https://codingapple1.github.io/hello2.txt');
+            return promiseChaining2;
+        }).then(function (결과) {
+            console.log(결과);
+        })  
+
+        function 프로미스함수(url) {
+            return new Promise(function (resolved, rejected) {
+                $.get(url).done(function (결과) {
+                    resolved(결과)
+                });
+            });
+        }
+
+    </script>
+</body>
+</html>
