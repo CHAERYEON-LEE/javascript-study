@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async,await예제문제</title>
+</head>
+<body>
+
+
+    <button id="btn">버튼누르면 성공!</button>
+
+
+    <script>
+
+    async function 버튼누르면성공출력(){
+        var 프로미스 = new Promise(function(성공, 실패){
+            document.getElementById('btn').addEventListener('click', function(){
+                성공('성공했어요');
+            })
+        });
+
+        var 결과 = await 프로미스;
+        console.log(결과);
+    }
+
+    버튼누르면성공출력();
+
+    </script>
+</body>
+</html>

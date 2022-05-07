@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol</title>
+</head>
+<body>
+    <script>
+        var 심볼 = Symbol('설명');
+
+        var weight = Symbol('내 시크릿 몸무게임!!');
+        var height = Symbol('내 실제 키');
+        
+
+        var person = {name : 'Kim', [height] : 155 };
+        person.weight = 100;
+        person[weight] = 200;
+        // person[height] = 155;
+
+
+        for (var key in person){
+            console.log(person[key])
+        }
+
+    </script>
+</body>
+</html>
